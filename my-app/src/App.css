@@ -1,3 +1,27 @@
+body {
+    margin: 0;
+}
+.color-body {
+        height: 100vh;
+        background-color: #f8f8f8;
+}
+
+.app-font{
+        font-family: 'Courgette', cursive;
+        /* font-family: 'Noto Kufi Arabic', sans-serif; */
+}
+
+.app-btn-color {
+        border: none;
+        border-radius: 8px;
+        color: white;
+        background-color: #224f61;
+        padding: 8px;
+}
+
+.app-btn-color:hover {
+                  color: rgb(148, 148, 162);
+}
 
 
 

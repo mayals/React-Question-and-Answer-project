@@ -1,10 +1,14 @@
+import FormInput from './components/FormInput'
+import QAList from './components/QAList'
 
-import './App.css';
+
 
 function App() {
   return (
-    <div className="App">
-      <h1>hello </h1>
+    <div className="color-body app-font">
+      <FormInput/>
+      <QAList/>
+
     </div>
   );
 }

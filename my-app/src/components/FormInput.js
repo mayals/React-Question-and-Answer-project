@@ -1,9 +1,11 @@
 import { Row, Col, Form, Button } from 'react-bootstrap'
 
+
+// https://react-bootstrap.github.io/forms/form-control/#disabled
 const FormInput=()=>{
 
    return(
-        <Row>
+        <Row className="my-3">
             <Col sm='5'>
                 <Form.Control
                     type="text"
@@ -27,7 +29,7 @@ const FormInput=()=>{
 
             <Col sm='2'>
                 <Button
-                    className="app-btn-color" 
+                    className="app-btn-color w-100" 
                     type="submit">
                         Add
                 </Button>

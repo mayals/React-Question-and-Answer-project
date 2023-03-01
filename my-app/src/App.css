@@ -1,7 +1,7 @@
 body {
     margin: 0;
 }
-.color-body {
+.app-color-body {
         height: 100vh;
         background-color: #f8f8f8;
 }
@@ -23,6 +23,34 @@ body {
                   color: rgb(148, 148, 162);
 }
 
+.app-img-avatar {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+.app-mt-0 {
+  margin-top: 0;
+}
+
+.app-font-decription {
+  color: #8c8c8c;
+  font-family: Courgette;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 20px;
+  text-align: right;
+}
+
+.app-font-title {
+  font-family: Courgette;
+  font-size: 21px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 28px;
+  text-align: right;
+}
 
 
 

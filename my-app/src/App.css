@@ -7,7 +7,8 @@ body {
 }
 
 .app-font{
-        font-family: 'Courgette', cursive;
+        font-family: 'Fira Sans', sans-serif;
+        /* font-family: 'Courgette', cursive; */
         /* font-family: 'Noto Kufi Arabic', sans-serif; */
 }
 

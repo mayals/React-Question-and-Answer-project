@@ -1,10 +1,9 @@
 import { Row, Col, Form, Button } from 'react-bootstrap'
 import React, { useState } from 'react'
-
-
-import {quesAnsarray} from "../data"
-
+import {quesAnsarray} from "../data.js"
 // https://react-bootstrap.github.io/forms/form-control/#disabled
+
+
 const FormInput=({onAddButton})=>{
 
         const [Qudatastate, setQudata] = useState('')
@@ -28,9 +27,8 @@ const FormInput=({onAddButton})=>{
                     setAndata('')
                     onAddButton();
 
-                    console.log(quesAnsarray)
+                    // console.log(quesAnsarray)
         }
-
 
         return(
                 <Row className="my-3">
@@ -65,7 +63,7 @@ const FormInput=({onAddButton})=>{
                     <Col sm='2'>
                         <Button
                             onClick={addNewQA}
-                            className="app-btn-color w-100" 
+                            className="btn btn-success w-100" 
                             type="submit">
                                 Add
                         </Button>

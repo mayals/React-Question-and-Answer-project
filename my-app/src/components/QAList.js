@@ -1,7 +1,18 @@
 import { Row, Accordion} from "react-bootstrap"
-
+import {quesAnsarray} from "../data.js"
 
 const QAList=(props)=>{
+
+    const deleteOneItemButton =(itemID)=>{
+            if ( quesAnsarray.length >=1 ){
+                    console.log(quesAnsarray)
+                    const index =quesAnsarray.findIndex((ArrayIndex)=>(ArrayIndex.id === itemID));
+                    quesAnsarray.splice(index,1);
+                    console.log(quesAnsarray)
+                    props.deletedOneItemArraydisplayButton(quesAnsarray);
+                    console.log(quesAnsarray)
+            }
+    }
 
     return(
 
@@ -22,13 +33,18 @@ const QAList=(props)=>{
                                                                                     </Accordion.Header>
                                                                                     
                                                                                     <Accordion.Body>
+                                                                                    <div >
                                                                                         <div className="px-3 d-inline">
                                                                                             {item.a}
                                                                                         </div>
 
-                                                                                        <button  className="app-btn-color">
+                                                                                        <button  
+                                                                                            className="app-btn-color"
+                                                                                            onClick={()=>{deleteOneItemButton(item.id)}}
+                                                                                        >
                                                                                             Delete
                                                                                         </button>
+                                                                                    </div>
                                                                                     </Accordion.Body> 
 
                                                                                 </Accordion.Item>

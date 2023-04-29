@@ -5,6 +5,10 @@ import { Container, Row, Col } from "react-bootstrap"
 import { useState } from 'react'
 import {quesAnsarray} from "./data.js"
 
+// https://github.com/fkhadra/react-toastify
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
   
@@ -16,7 +20,8 @@ function App() {
             const addQAButton = () => { 
                 localStorage.setItem("items",JSON.stringify([...quesAnsarray]));
                 setquesAnsarray([...quesAnsarray])
-                console.log('you add addQA successfully')
+                // console.log('you add addQA successfully')
+                notify("You add successfully", "Success")
             }
             
             //to delete all items
@@ -24,19 +29,30 @@ function App() {
                 localStorage.removeItem("items")
                 quesAnsarray.splice(0,quesAnsarray.length);
                 setquesAnsarray([])  
-            }
+                notify("You delete all items successfully", "Success")
+              }
 
             //to delete one item from quesAnsarray array
             const deletedOneItemArraydisplay = (finalItemsArray) => {
                 localStorage.setItem("items",JSON.stringify([...finalItemsArray]));
                 setquesAnsarray([...finalItemsArray])
-               
+                notify("You delete one item successfully","Success")  
                 if (finalItemsArray.length <= 0) {
                   deleteAllItems();
                 }
             }
 
-            return (
+            //to push notification
+            const notify = (message, type) => {
+                      if (type === "Error")
+                            toast.error(message)
+                      else if (type === "Success")
+                            toast.success(message)
+            };
+           
+           
+           
+              return (
               <div className="app-color-body app-font">
               
                 <Container className="p-5">
@@ -61,7 +77,7 @@ function App() {
                     </Col>
 
                   </Row>
-                
+                <ToastContainer/>
                 </Container>
 
               </div>

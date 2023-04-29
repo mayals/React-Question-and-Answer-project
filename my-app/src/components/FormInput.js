@@ -4,24 +4,26 @@ import {quesAnsarray} from "../data.js"
 // https://react-bootstrap.github.io/forms/form-control/#disabled
 
 
-const FormInput=({onAddButton})=>{
+const FormInput=({onAddButton,notify})=>{
 
         const [Qudatastate, setQudata] = useState('')
         const [Andatastate, setAndata] = useState('')
 
 
         //to push data to array
+        // not work  :(
         const addNewQA = () => {
                     if (Qudatastate === "" || Andatastate === "") {
-                        console.log('NO Qudatastate OR NO Andatastate')
+                        // console.log('NO Qudatastate OR NO Andatastate');
+                        notify("Please complete form input","Error");
                         return;
                     }
 
-                    quesAnsarray.push({id:Math.random(),q:Qudatastate,a:Andatastate});
+                    quesAnsarray.push({id:Math.random(), q:Qudatastate, a:Andatastate});
                     setQudata('')
                     setAndata('')
                     onAddButton();
-
+                    
                     // console.log(quesAnsarray)
         }
 

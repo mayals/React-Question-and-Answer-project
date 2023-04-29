@@ -1,16 +1,22 @@
 import { Row, Accordion} from "react-bootstrap"
 import {quesAnsarray} from "../data.js"
 
+
 const QAList=(props)=>{
+    // to covert to array
+    const myDataLocal = JSON.parse(localStorage.getItem("items"))
+    console.log("myDataLocal=",myDataLocal)
+    console.log('quesAnsarray',quesAnsarray)
 
     const deleteOneItemButton =(itemID)=>{
-            if ( quesAnsarray.length >=1 ){
-                    console.log(quesAnsarray)
-                    const index =quesAnsarray.findIndex((ArrayIndex)=>(ArrayIndex.id === itemID));
-                    quesAnsarray.splice(index,1);
-                    console.log(quesAnsarray)
+            if (localStorage.getItem("items") != null){
+                    // console.log(quesAnsarray)
+                    const index = quesAnsarray.findIndex((ArrayIndex)=>(ArrayIndex.id === itemID));
+                    console.log("index",index)
+                    quesAnsarray.splice(index,1)
+                    // console.log(quesAnsarray)
                     props.deletedOneItemArraydisplayButton(quesAnsarray);
-                    console.log(quesAnsarray)
+                    console.log("deletedOneItemArraydisplayButton",quesAnsarray)
             }
     }
 
@@ -20,35 +26,35 @@ const QAList=(props)=>{
 
             <Accordion >
             {
-                props.qaArrayList.length >= 1 ? (props.qaArrayList.map((item,index)=>{
-                                                                        return(
-                                                                                <Accordion.Item 
-                                                                                    key={index}  
-                                                                                    eventKey={item.id}>
-                                                                                    
-                                                                                    <Accordion.Header>
-                                                                                        <div className="px-3">
-                                                                                            Q-{index}: {item.q}
-                                                                                        </div>
-                                                                                    </Accordion.Header>
-                                                                                    
-                                                                                    <Accordion.Body>
-                                                                                    <div >
-                                                                                        <div className="px-3 d-inline">
-                                                                                            {item.a}
-                                                                                        </div>
+                localStorage.getItem("items") != null ? (myDataLocal.map((item,index)=>{
+                            return(
+                                    <Accordion.Item 
+                                        key={index}  
+                                        eventKey={item.id}>
+                                        
+                                        <Accordion.Header>
+                                            <div className="px-3">
+                                                Q-{index}: {item.q}
+                                            </div>
+                                        </Accordion.Header>
+                                        
+                                        <Accordion.Body>
+                                        <div >
+                                            <div className="px-3 d-inline">
+                                                {item.a}
+                                            </div>
 
-                                                                                        <button  
-                                                                                            className="app-btn-color"
-                                                                                            onClick={()=>{deleteOneItemButton(item.id)}}
-                                                                                        >
-                                                                                            Delete
-                                                                                        </button>
-                                                                                    </div>
-                                                                                    </Accordion.Body> 
+                                            <button  
+                                                className="btn btn-info"
+                                                onClick={()=>{deleteOneItemButton(item.id)}}
+                                            >
+                                                Delete
+                                            </button>
+                                        </div>
+                                        </Accordion.Body> 
 
-                                                                                </Accordion.Item>
-                                                                        )
+                                    </Accordion.Item>
+                            )
                 })) : <p  className="my-5"><small>Empty list, No Question/Answer data ..!</small></p>
 
             }

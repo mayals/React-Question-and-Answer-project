@@ -17,12 +17,7 @@ const FormInput=({onAddButton})=>{
                         return;
                     }
 
-                    quesAnsarray.push({ 
-                                        id: Math.random(),
-                                         q: Qudatastate,
-                                         a: Andatastate, 
-                                    });
-            
+                    quesAnsarray.push({id:Math.random(),q:Qudatastate,a:Andatastate});
                     setQudata('')
                     setAndata('')
                     onAddButton();
@@ -63,7 +58,8 @@ const FormInput=({onAddButton})=>{
                     <Col sm='2'>
                         <Button
                             onClick={addNewQA}
-                            className="btn btn-success w-100" 
+                            className="w-100" 
+                            variant="success"
                             type="submit">
                                 Add
                         </Button>
